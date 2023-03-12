@@ -16,11 +16,11 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, op
         cloud_pct.innerHTML = response.cloud_pct
         // feels_like.innerHTML = response.feels_like
         humidity.innerHTML = response.humidity
-        humidity2.innerHTML = response.humidity
+        humidity2.innerHTML = `${response.humidity}<small class="text-muted fw-light"> %</small>`
         max_temp.innerHTML = response.max_temp
         min_temp.innerHTML = response.min_temp
-        sunrise.innerHTML = response.sunrise
-        sunset.innerHTML = response.sunset
+        sunrise.innerHTML = getTime(response.sunrise)
+        sunset.innerHTML = getTime(response.sunset)
         temp.innerHTML = response.temp
         temp2.innerHTML = response.temp
         wind_degrees.innerHTML = response.wind_degrees
@@ -50,8 +50,8 @@ function getWeatherShanghai () {
         humidity_shanghai.innerHTML = response.humidity
         max_temp_shanghai.innerHTML = response.max_temp
         min_temp_shanghai.innerHTML = response.min_temp
-        sunrise_shanghai.innerHTML = response.sunrise
-        sunset_shanghai.innerHTML = response.sunset
+        sunrise_shanghai.innerHTML = getTime(response.sunrise)
+        sunset_shanghai.innerHTML = getTime(response.sunset)
         temp_shanghai.innerHTML = response.temp
         wind_degrees_shanghai.innerHTML = response.wind_degrees
         wind_speed_shanghai.innerHTML = response.wind_speed
@@ -72,8 +72,8 @@ function getWeatherBoston () {
         humidity_boston.innerHTML = response.humidity
         max_temp_boston.innerHTML = response.max_temp
         min_temp_boston.innerHTML = response.min_temp
-        sunrise_boston.innerHTML = response.sunrise
-        sunset_boston.innerHTML = response.sunset
+        sunrise_boston.innerHTML = getTime(response.sunrise)
+        sunset_boston.innerHTML = getTime(response.sunset)
         temp_boston.innerHTML = response.temp
         wind_degrees_boston.innerHTML = response.wind_degrees
         wind_speed_boston.innerHTML = response.wind_speed
@@ -93,8 +93,8 @@ function getWeatherLucknow () {
         humidity_lucknow.innerHTML = response.humidity
         max_temp_lucknow.innerHTML = response.max_temp
         min_temp_lucknow.innerHTML = response.min_temp
-        sunrise_lucknow.innerHTML = response.sunrise
-        sunset_lucknow.innerHTML = response.sunset
+        sunrise_lucknow.innerHTML = getTime(response.sunrise)
+        sunset_lucknow.innerHTML = getTime(response.sunset)
         temp_lucknow.innerHTML = response.temp
         wind_degrees_lucknow.innerHTML = response.wind_degrees
         wind_speed_lucknow.innerHTML = response.wind_speed
@@ -114,15 +114,25 @@ function getWeatherKolkata () {
         humidity_kolkata.innerHTML = response.humidity
         max_temp_kolkata.innerHTML = response.max_temp
         min_temp_kolkata.innerHTML = response.min_temp
-        sunrise_kolkata.innerHTML = response.sunrise
-        sunset_kolkata.innerHTML = response.sunset
+        sunrise_kolkata.innerHTML = getTime(response.sunrise)
+        sunset_kolkata.innerHTML = getTime(response.sunset)
         temp_kolkata.innerHTML = response.temp
         wind_degrees_kolkata.innerHTML = response.wind_degrees
         wind_speed_kolkata.innerHTML = response.wind_speed
     })
 	.catch(err => console.error(err));
 }
+
+// calling all the functions initially
+
 getWeatherShanghai()
 getWeatherBoston()
 getWeatherLucknow()
 getWeatherKolkata()
+
+// function to convert the API Time to a more readable format
+function getTime(timestamp){
+const time = new Date(timestamp * 1000).toLocaleTimeString();
+
+return time;
+}
