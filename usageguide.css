@@ -2,7 +2,7 @@
     visibility: hidden;
 }
 .show-text{
-    height: 10rem !important; 
+    height: 15rem !important; 
 }
 .btn-close{
     transform: rotate(45deg);
