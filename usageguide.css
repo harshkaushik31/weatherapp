@@ -1,0 +1,26 @@
+.hidden{
+    visibility: hidden;
+}
+.show-text{
+    height: 10rem !important; 
+}
+.btn-close{
+    transform: rotate(45deg);
+}
+.rotate-90{
+    transform: rotate(90deg);
+    transition: ease 0.5s;
+}
+#q-1, #q-2, #q-3{
+    display: flex;
+    justify-content: space-between;
+}
+.question-1, .question-2, .question-3{
+    padding: 1rem;
+}
+.question{
+    margin: 1rem;
+    height: 4rem;
+    overflow: hidden;
+    transition: ease 0.5s;
+}
