@@ -2,7 +2,7 @@
     visibility: hidden;
 }
 .show-text{
-    height: 15rem !important; 
+    height: fit-content !important;
 }
 .btn-close{
     transform: rotate(45deg);
@@ -24,3 +24,15 @@
     overflow: hidden;
     transition: ease 0.5s;
 }
+
+@media screen and (max-width: 1000px) {
+    .question{
+        margin: 1rem;
+        height: 5rem;
+        overflow: hidden;
+        transition: ease 0.5s;
+    }
+    .question-1{
+        height: 4rem;
+    }
+  }
